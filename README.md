@@ -24,3 +24,5 @@ Simulates slow, natural typing to automatically generate content in Google Docs 
 1. Open a **Google Docs** document.  
 2. Click on the heading that says "TypeLapse"
 3. Follow the instructions by pasting in your text and selecting your desired delay time in milliseconds.
+
+![typesim](assets/example.mp4)
