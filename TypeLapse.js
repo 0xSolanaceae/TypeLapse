@@ -28,11 +28,11 @@ if (
 
     let cancelTyping = false;
     let typingInProgress = false;
-    let lowerBoundValue = 100;
-    let upperBoundValue = 200;
-    let breakFrequency = 100; // Number of characters before taking a break
-    let breakDuration = 5000; // Break duration in milliseconds
-    let enableBreaks = false; // Toggle for enabling breaks
+    let lowerBoundValue = 60;
+    let upperBoundValue = 80;
+    let breakFrequency = 100;
+    let breakDuration = 5000;
+    let enableBreaks = false;
 
     TypeLapseButton.addEventListener("click", async () => {
         if (typingInProgress) {
@@ -350,42 +350,42 @@ if (
         stopButton.style.display = "none";
     }
 
-    function simulateTyping(inputElement, char, delay) {
-        return new Promise((resolve) => {
-            if (cancelTyping) {
-                stopButton.style.display = "none";
-                console.log("Typing cancelled");
-                resolve();
-                return;
-            }
-
-            setTimeout(() => {
-                let eventObj;
-                if (char === "\n") {
-                    eventObj = new KeyboardEvent("keydown", {
-                        bubbles: true,
-                        key: "Enter",
-                        code: "Enter",
-                        keyCode: 13,
-                        which: 13,
-                        charCode: 13,
-                    });
-                } else {
-                    eventObj = new KeyboardEvent("keypress", {
-                        bubbles: true,
-                        key: char,
-                        charCode: char.charCodeAt(0),
-                        keyCode: char.charCodeAt(0),
-                        which: char.charCodeAt(0),
-                    });
-                }
-
-                inputElement.dispatchEvent(eventObj);
-                console.log(`Typed: ${char}, Delay: ${delay}ms`);
-                resolve();
-            }, delay);
-        });
-    }
+	function simulateTyping(inputElement, char, delay) {
+		return new Promise((resolve) => {
+			if (cancelTyping) {
+				stopButton.style.display = "none";
+				console.log("Typing cancelled");
+				resolve();
+				return;
+			}
+	
+			setTimeout(() => {
+				let eventObj;
+				if (char === "\n") {
+					eventObj = new KeyboardEvent("keydown", {
+						bubbles: true,
+						key: "Enter",
+						code: "Enter",
+						keyCode: 13,
+						which: 13,
+						charCode: 13,
+					});
+				} else {
+					eventObj = new KeyboardEvent("keypress", {
+						bubbles: true,
+						key: char,
+						charCode: char.charCodeAt(0),
+						keyCode: char.charCodeAt(0),
+						which: char.charCodeAt(0),
+					});
+				}
+	
+				inputElement.dispatchEvent(eventObj);
+				console.log(`Typed: ${char}, Delay: ${delay}ms`);
+				resolve();
+			}, delay);
+		});
+	}
 } else {
     console.log("TypeLapse cannot find document");
 }
