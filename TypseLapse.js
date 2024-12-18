@@ -107,6 +107,21 @@ if (window.location.href.includes("docs.google.com/document/d") || window.locati
         isDragging = false;
     });
 
+    const closeButton = document.createElement("button");
+    closeButton.textContent = "X";
+    closeButton.style = `
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+    `;
+    closeButton.addEventListener("click", () => {
+        document.body.removeChild(overlay);
+    });
+
     const heading = document.createElement("h2");
     heading.textContent = "TypeLapse";
     heading.style = `
@@ -153,7 +168,7 @@ if (window.location.href.includes("docs.google.com/document/d") || window.locati
         transition: background-color 0.3s;
     `;
 
-    overlay.append(heading, description, textField, randomDelayLabel, lowerBoundLabel, upperBoundLabel, document.createElement("br"), confirmButton);
+    overlay.append(closeButton, heading, description, textField, randomDelayLabel, lowerBoundLabel, upperBoundLabel, document.createElement("br"), confirmButton);
     document.body.appendChild(overlay);
 
     return new Promise((resolve) => {
