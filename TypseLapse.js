@@ -6,6 +6,8 @@
 // @author       Solanaceae
 // @match        https://docs.google.com/*
 // @icon         https://raw.githubusercontent.com/0xSolanaceae/TypeLapse/refs/heads/main/assets/favicon/favicon.svg
+// @updateURL    https://raw.githubusercontent.com/0xSolanaceae/TypeLapse/main/TypseLapse.js
+// @downloadURL  https://raw.githubusercontent.com/0xSolanaceae/TypeLapse/main/TypseLapse.js
 // ==/UserScript==
 
 if (window.location.href.includes("docs.google.com/document/d") || window.location.href.includes("docs.google.com/presentation/d")) {
