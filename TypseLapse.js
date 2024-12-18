@@ -88,10 +88,11 @@ if (window.location.href.includes("docs.google.com/document/d") || window.locati
     let offsetX, offsetY;
 
     overlay.addEventListener("mousedown", (e) => {
-        isDragging = true;
-        offsetX = e.clientX - overlay.getBoundingClientRect().left;
-        offsetY = e.clientY - overlay.getBoundingClientRect().top;
-        overlay.style.cursor = "default";
+        if (e.target === overlay) {
+            isDragging = true;
+            offsetX = e.clientX - overlay.getBoundingClientRect().left;
+            offsetY = e.clientY - overlay.getBoundingClientRect().top;
+        }
     });
 
     document.addEventListener("mousemove", (e) => {
@@ -104,7 +105,6 @@ if (window.location.href.includes("docs.google.com/document/d") || window.locati
 
     document.addEventListener("mouseup", () => {
         isDragging = false;
-        overlay.style.cursor = "default";
     });
 
     const heading = document.createElement("h2");
