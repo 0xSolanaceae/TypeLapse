@@ -73,7 +73,7 @@ if (window.location.href.includes("docs.google.com/document/d") || window.locati
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: rgba(255, 255, 255);
+        background-color: rgb(255, 255, 255);
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
@@ -83,6 +83,29 @@ if (window.location.href.includes("docs.google.com/document/d") || window.locati
         align-items: center;
         width: 320px;
     `;
+
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    overlay.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        offsetX = e.clientX - overlay.getBoundingClientRect().left;
+        offsetY = e.clientY - overlay.getBoundingClientRect().top;
+        overlay.style.cursor = "default";
+    });
+
+    document.addEventListener("mousemove", (e) => {
+        if (isDragging) {
+            overlay.style.left = `${e.clientX - offsetX}px`;
+            overlay.style.top = `${e.clientY - offsetY}px`;
+            overlay.style.transform = "none";
+        }
+    });
+
+    document.addEventListener("mouseup", () => {
+        isDragging = false;
+        overlay.style.cursor = "default";
+    });
 
     const heading = document.createElement("h2");
     heading.textContent = "TypeLapse";
