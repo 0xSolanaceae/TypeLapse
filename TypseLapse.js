@@ -5,7 +5,7 @@
 // @description  Simulates slow, natural typing to automatically generate content in Google Docs over time
 // @author       Solanaceae
 // @match        https://docs.google.com/*
-// @icon         https://raw.githubusercontent.com/0xSolanaceae/TypeLapse/refs/heads/main/assets/type.svg
+// @icon         https://raw.githubusercontent.com/0xSolanaceae/TypeLapse/refs/heads/main/assets/favicon/favicon.svg
 // ==/UserScript==
 
 if (window.location.href.includes("docs.google.com/document/d") || window.location.href.includes("docs.google.com/presentation/d")) {
