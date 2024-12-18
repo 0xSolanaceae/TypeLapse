@@ -1,6 +1,11 @@
 # **TypeLapse**  
 Simulates slow, natural typing to automatically generate content in Google Docs over time. Perfect for creating timelines, or live writing effects.
 
+> [!IMPORTANT]
+> To use this script, you must have Tampermonkey installed.
+
+#### [Greasy Fork](https://greasyfork.org/en/scripts/521151-typelapse)
+
 ---
 
 ## **Setup**  
@@ -25,4 +30,4 @@ Simulates slow, natural typing to automatically generate content in Google Docs 
 2. Click on the heading that says "TypeLapse"
 3. Follow the instructions by pasting in your text and selecting your desired delay time in milliseconds.
 
-![typesim](assets/example.mp4)
+![typesim](assets/example.gif)
