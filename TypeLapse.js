@@ -14,7 +14,7 @@ if (
 	window.location.href.includes("docs.google.com/document/d") ||
 	window.location.href.includes("docs.google.com/presentation/d")
 ) {
-    console.log("Document opened and viewed.");
+    console.log("TypeLapse loaded!");
 
 	const TypeLapseButton = createButton("TypeLapse", "type-lapse-button");
 	const stopButton = createButton("Stop", "stop-button", "red");
@@ -316,5 +316,5 @@ if (
 		});
 	}
 } else {
-	console.log("Document not open, TypeLapse not available.");
+	console.log("TypeLapse cannot find document");
 }
