@@ -14,7 +14,7 @@ if (
 	window.location.href.includes("docs.google.com/document/d") ||
 	window.location.href.includes("docs.google.com/presentation/d")
 ) {
-    console.log("TypeLapse loaded!");
+	console.log("TypeLapse loaded!");
 
 	const TypeLapseButton = createButton("TypeLapse", "type-lapse-button");
 	const stopButton = createButton("Stop", "stop-button", "red");
@@ -40,7 +40,9 @@ if (
 		cancelTyping = false;
 		stopButton.style.display = "none";
 
-		const { userInput } = await showOverlay();
+		const {
+			userInput
+		} = await showOverlay();
 
 		if (userInput !== "") {
 			const input = document.querySelector(".docs-texteventtarget-iframe")
@@ -77,20 +79,20 @@ if (
 		const overlay = document.createElement("div");
 		overlay.id = "type-lapse-overlay";
 		overlay.style = `
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: rgb(255, 255, 255);
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 320px;
-  `;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: rgb(255, 255, 255);
+			padding: 20px;
+			border-radius: 8px;
+			box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+			z-index: 9999;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 320px;
+		`;
 
 		let isDragging = false;
 		let offsetX, offsetY;
@@ -118,14 +120,14 @@ if (
 		const closeButton = document.createElement("button");
 		closeButton.textContent = "X";
 		closeButton.style = `
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: none;
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
-  `;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			background: none;
+			border: none;
+			font-size: 16px;
+			cursor: pointer;
+		`;
 		closeButton.addEventListener("click", () => {
 			document.body.removeChild(overlay);
 		});
@@ -133,31 +135,31 @@ if (
 		const heading = document.createElement("h2");
 		heading.textContent = "TypeLapse";
 		heading.style = `
-      margin-bottom: 15px;
-      font-size: 24px;
-      color: #333;
-  `;
+			margin-bottom: 15px;
+			font-size: 24px;
+			color: #333;
+		`;
 
 		const textField = document.createElement("textarea");
 		textField.rows = "5";
 		textField.cols = "40";
 		textField.placeholder = "Enter your text...";
 		textField.style = `
-      margin-bottom: 10px;
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      resize: vertical;
-  `;
+			margin-bottom: 10px;
+			width: 100%;
+			padding: 8px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			resize: vertical;
+		`;
 
 		const description = document.createElement("p");
 		description.textContent =
 			"Keep this tab open; otherwise, the script will pause and resume when you return. Each character has a random typing delay between the lower (min) and upper (max) bounds in milliseconds. Lower values are faster.";
 		description.style = `
-      font-size: 14px;
-      margin-bottom: 15px;
-  `;
+			font-size: 14px;
+			margin-bottom: 15px;
+		`;
 
 		const randomDelayLabel = document.createElement("div");
 		randomDelayLabel.style.marginBottom = "5px";
@@ -168,14 +170,14 @@ if (
 		const confirmButton = document.createElement("button");
 		confirmButton.textContent = "Cancel";
 		confirmButton.style = `
-      padding: 8px 16px;
-      background-color: #4d82f4;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-  `;
+			padding: 8px 16px;
+			background-color: #4d82f4;
+			color: white;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		`;
 
 		overlay.append(
 			closeButton,
@@ -195,11 +197,11 @@ if (
 				const charCount = textField.value.length;
 				const etaLowerBound = Math.ceil(
 					(charCount * parseInt(lowerBoundLabel.querySelector("input").value)) /
-						60000,
+					60000,
 				);
 				const etaUpperBound = Math.ceil(
 					(charCount * parseInt(upperBoundLabel.querySelector("input").value)) /
-						60000,
+					60000,
 				);
 				randomDelayLabel.textContent = `ETA: ${etaLowerBound} - ${etaUpperBound} minutes`;
 			};
@@ -218,13 +220,12 @@ if (
 					return;
 				}
 
-				if (
-					isNaN(lowerBoundValue) ||
+				if (isNaN(lowerBoundValue) ||
 					isNaN(upperBoundValue) ||
 					lowerBoundValue < 0 ||
-					upperBoundValue < lowerBoundValue
-				)
+					upperBoundValue < lowerBoundValue) {
 					return;
+				}
 
 				typingInProgress = true;
 				stopButton.style.display = "inline";
@@ -257,11 +258,11 @@ if (
 		input.min = "0";
 		input.value = value;
 		input.style = `
-        margin-right: 10px;
-        padding: 6px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    `;
+			margin-right: 10px;
+			padding: 6px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		`;
 		label.appendChild(input);
 		return label;
 	}
